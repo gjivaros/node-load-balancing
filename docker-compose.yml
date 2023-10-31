@@ -1,0 +1,35 @@
+version : '3'
+
+services:
+
+  lb:
+    image: haproxy
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+    ports:
+      - "3000:3000"
+    
+  api1:
+    image: nodeapi
+    environment:
+      - APPID=1111
+
+  api2:
+    image: nodeapi
+    environment:
+      - APPID=2222
+
+  api3:
+    image: nodeapi
+    environment:
+      - APPID=3333
+
+  api4:
+    image: nodeapi
+    environment:
+      - APPID=4444
+
+  api5:
+    image: nodeapi
+    environment:
+      - APPID=5555
